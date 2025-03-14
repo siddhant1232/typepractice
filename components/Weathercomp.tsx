@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import useWeatherStore from "../store/weather";
 
 const WeatherComponent: React.FC = () => {
-  const { city, weather, loading, error, setCity, fetchWeather } = useWeatherStore();
+  const { city, weather, loading, error, fetchWeather } = useWeatherStore();
   const [inputCity, setInputCity] = useState(city);
 
   return (
     <div className="p-6 max-w-md mx-auto bg-white shadow-lg rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Weather App</h1>
-
-      {/* Input and Search Button */}
       <div className="flex gap-2 mb-4">
         <input
           type="text"
@@ -25,8 +23,6 @@ const WeatherComponent: React.FC = () => {
           Search
         </button>
       </div>
-
-      {/* Loading, Error, and Weather Display */}
       {loading && <p className="mt-4 text-gray-600">Loading...</p>}
       {error && <p className="mt-4 text-red-500">{error}</p>}
 
